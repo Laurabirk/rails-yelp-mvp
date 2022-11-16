@@ -3,7 +3,10 @@
 <h2><%= @restaurant.category %></h2>
 <h3><%= @restaurant.phone_number %></h3>
 
-<%= link_to 'return to restaurant list', restaurants_path(), class: "button"%>
+<%= link_to new_restaurant_review_path(@restaurant) do%>
+  <i class="fa-regular fa-pen-to-square"></i>
+<% end %>
+
 
 <p><strong>Reviews</strong></p>
 <ul class="list-group">
@@ -11,10 +14,8 @@
     <li class="list-group-item">
     <%= review.content %>
     <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
     </li>
   <% end %>
 </ul>
-<br>
 
-
+<%= link_to 'return to restaurant list', restaurants_path(), class: "button"%>
